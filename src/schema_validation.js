@@ -1,10 +1,33 @@
-const bookstore_reviews_default = {
+/* eslint-disable no-undef */
+const reviews = [
+  {
+    review_id: 'r1',
+    book_id: 'b1',
+    user_id: 'user1',
+    timestamp: new Date(),
+    review: 'Great book!',
+    rating: 5
+  },
+  {
+    review_id: 'r2',
+    book_id: 'b2',
+    user_id: 'user2',
+    timestamp: new Date(),
+    review: 'Not bad, but could be better.',
+    rating: 3
+  }
+]
+
+db.reviews.insertMany(reviews)
+console.log(`Inserted ${reviews.length} reviews.`)
+
+const reviewsSchema = {
   bsonType: 'object',
-  required: ['_id', 'review_id', 'user_id', 'timestamp', 'review', 'rating'],
+  required: ['review_id', 'book_id', 'user_id', 'timestamp', 'review', 'rating'],
   additionalProperties: false,
   properties: {
-    _id: { bsonType: 'objectId' },
     review_id: { bsonType: 'string' },
+    book_id: { bsonType: 'string' },
     user_id: { bsonType: 'string' },
     timestamp: { bsonType: 'date' },
     review: { bsonType: 'string' },
@@ -12,24 +35,22 @@ const bookstore_reviews_default = {
       bsonType: 'int',
       minimum: 0,
       maximum: 5
-    },
-    comments: {
-      bsonType: 'array',
-      maxItems: 3,
-      items: {
-        bsonType: 'object'
-      }
     }
   }
 }
-
-const schema_validation = { $jsonSchema: bookstore_reviews_default }
-
 db.runCommand({
   collMod: 'reviews',
-  validator: schema_validation,
+  validator: reviewsSchema,
   validationLevel: 'strict',
   validationAction: 'error'
 })
+console.log('Updated reviews collection with schema validation.')
 
-db.runCommand({ collMod: 'reviews_angel_april', validator: initial_schema, validationLevel: 'strict', validationAction: 'error' })
+console.log('Attempting to insert a review that violates the schema validation...')
+db.reviews.insertOne({
+  review_id: 0,
+  user_id: 'testuser',
+  timestamp: '2050-01-01',
+  review: 'Another test review',
+  rating: 9
+})
