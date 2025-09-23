@@ -4,12 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint src",
-    "build": "rm -rf ./build && tsc",
-    "start": "npm run build && node build/src/index.js",
-    "dev": "nodemon",
-    "test:watch": "jest --watch",
-    "test": "jest"
+    "clean": "docker compose down && sudo rm -rf data",
+    "start": "docker compose up -d && sleep 3 && ./run.sh"
   },
   "keywords": [
     "node",

@@ -1,1 +1,1 @@
-docker exec -it mongodb mongosh mongodb://admin:password@localhost:27017 --file /src/initial_setup.js
+docker exec -it mongodb mongosh mongodb://admin:password@localhost:27017
