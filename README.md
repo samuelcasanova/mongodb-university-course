@@ -5,13 +5,13 @@
 <!-- PROJECT LOGO -->
 <div align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png" alt="Logo" height="80">
-  <h3 align="center">Node project template</h3>
+  <h3 align="center">MongoDB course repository</h3>
 </div>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Node project template to bootstrap other solutions
+Some code developed during the "Node.js developer track" from MongoDB University
 
 ### Built With
 
@@ -34,7 +34,7 @@ You just need git and node installed in your computer to use this template
 
 1. Clone the repo
    ```sh
-   git clone git@github.com:samuelcasanova/node-template.git
+   git clone git@github.com:samuelcasanova/mongodb-university-course.git
    ```
 2. Install dependencies
    ```sh
@@ -49,21 +49,21 @@ You just need git and node installed in your computer to use this template
    ```sh
    npm run build
    ```
-2. Start the hello world
+2. Start the DB server and execute all the scripts
    ```sh
    npm start
    ```
-3. You can also start the hello world in dev mode with nodemon
+3. You can also connect directly with the mongosh locally with this script
    ```sh
-   npm run dev
+   ./connect-local.sh
    ```
-4. Run tests
+4. Or connect to an Atlas instance throught the local mongosh
    ```sh
-   npm test
+   ./connect-atlas.sh
    ```
-5. Run linter
+5. You can access the local instance with a compass web interface
    ```sh
-   npm run lint
+   npm run compass
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -73,7 +73,7 @@ You just need git and node installed in your computer to use this template
 
 Samuel Casanova - [@casanovasamuel](https://twitter.com/casanovasamuel) - samuel.casanova@gmail.com
 
-Project Link: [https://github.com/samuelcasanova/node-template](https://github.com/samuelcasanova/node-template)
+Project Link: [https://github.com/samuelcasanova/node-template](https://github.com/samuelcasanova/mongodb-university-course)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
