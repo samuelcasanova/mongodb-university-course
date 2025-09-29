@@ -11,3 +11,14 @@ services:
     volumes:
       - ./data:/data
       - ./src:/src
+  compass:
+    image: haohanyang/compass-web
+    container_name: compass
+    environment:
+      - CW_MONGO_URI=mongodb://admin:password@mongodb:27017
+    depends_on:
+      - mongodb
+    ports:
+      - 8080:8080
+    links:
+      - mongodb
