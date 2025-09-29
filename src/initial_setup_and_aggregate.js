@@ -1,4 +1,6 @@
 /* eslint-disable no-undef */
+db = db.getSiblingDB('test')
+
 const authorDocuments = [
   { _id: 20, name: 'Mary Shelley', sanitizedName: 'maryshelley', bio: 'Mary Shelley (1797-1851) Mary Shelley was an English novelist best known for her Gothic masterpiece Frankenstein; or, The Modern Prometheus, and for her profound influence on science fiction and horror literature.', aliases: ['Mary Wollstonecraft Shelley'] },
   { _id: 21, name: 'J.R.R. Tolkien', sanitizedName: 'jrrtolkien', bio: 'J.R.R. Tolkien (1892-1973) J.R.R. Tolkien was an English writer, poet, philologist, and university professor, best known as the author of the classic high fantasy works The Hobbit, The Lord of the Rings, and The Silmarillion.', aliases: ['John Ronald Reuel Tolkien', 'JRR Tolkien'] },
