@@ -1,4 +1,4 @@
-docker exec -it mongodb mongosh mongodb://admin:password@localhost:27017 --file /src/initial_setup_and_aggregate.js
-docker exec -it mongodb mongosh mongodb://admin:password@localhost:27017 --file /src/schema_validation.js
-
 node ./src/app.js
+docker exec -it mongodb mongosh mongodb://admin:password@localhost:27017 --file /src/01.initial_setup_and_aggregate.js
+docker exec -it mongodb mongosh mongodb://admin:password@localhost:27017 --file /src/02.schema_validation.js
+docker exec -it mongodb mongosh mongodb://admin:password@localhost:27017 --file /src/03.retrieving_documents.js
