@@ -3,7 +3,11 @@ const reviews = [
   {
     review_id: 'r1',
     book_id: 'b1',
-    user_id: 'user1',
+    user: {
+      user_id: 'user1',
+      name: 'User One',
+      age: 30
+    },
     timestamp: new Date(),
     review: 'Great book!',
     rating: 5
@@ -11,7 +15,11 @@ const reviews = [
   {
     review_id: 'r2',
     book_id: 'b2',
-    user_id: 'user2',
+    user: {
+      user_id: 'user2',
+      name: 'User Two',
+      age: 25
+    },
     timestamp: new Date(),
     review: 'Not bad, but could be better.',
     rating: 3
@@ -23,12 +31,16 @@ console.log(`Inserted ${reviews.length} reviews.`)
 
 const reviewsSchema = {
   bsonType: 'object',
-  required: ['review_id', 'book_id', 'user_id', 'timestamp', 'review', 'rating'],
+  required: ['review_id', 'book_id', 'user', 'timestamp', 'review', 'rating'],
   additionalProperties: false,
   properties: {
     review_id: { bsonType: 'string' },
     book_id: { bsonType: 'string' },
-    user_id: { bsonType: 'string' },
+    user: {
+      user_id: { bsonType: 'string' },
+      name: { bsonType: 'string' },
+      age: { bsonType: 'int', minimum: 0 }
+    },
     timestamp: { bsonType: 'date' },
     review: { bsonType: 'string' },
     rating: {
