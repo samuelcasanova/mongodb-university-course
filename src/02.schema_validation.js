@@ -30,23 +30,25 @@ db.reviews.insertMany(reviews)
 console.log(`Inserted ${reviews.length} reviews.`)
 
 const reviewsSchema = {
-  bsonType: 'object',
-  required: ['review_id', 'book_id', 'user', 'timestamp', 'review', 'rating'],
-  additionalProperties: false,
-  properties: {
-    review_id: { bsonType: 'string' },
-    book_id: { bsonType: 'string' },
-    user: {
-      user_id: { bsonType: 'string' },
-      name: { bsonType: 'string' },
-      age: { bsonType: 'int', minimum: 0 }
-    },
-    timestamp: { bsonType: 'date' },
-    review: { bsonType: 'string' },
-    rating: {
-      bsonType: 'int',
-      minimum: 0,
-      maximum: 5
+  $jsonSchema: {
+    bsonType: 'object',
+    required: ['review_id', 'book_id', 'user', 'timestamp', 'review', 'rating'],
+    additionalProperties: false,
+    properties: {
+      review_id: { bsonType: 'string' },
+      book_id: { bsonType: 'string' },
+      user: {
+        user_id: { bsonType: 'string' },
+        name: { bsonType: 'string' },
+        age: { bsonType: 'int', minimum: 0 }
+      },
+      timestamp: { bsonType: 'date' },
+      review: { bsonType: 'string' },
+      rating: {
+        bsonType: 'int',
+        minimum: 0,
+        maximum: 5
+      }
     }
   }
 }
