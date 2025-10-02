@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-console.log('Replacing review document with id r2 with a rating of 5:')
+console.log('Replacing review document with id r2 with a rating of 4:')
 const replaceResult = db.reviews.replaceOne(
   { review_id: 'r2' },
   {
@@ -12,10 +12,20 @@ const replaceResult = db.reviews.replaceOne(
     },
     timestamp: new Date(),
     review: 'Not bad, but could be better.',
-    rating: 5
+    rating: 4
   }
 )
 printjson(replaceResult)
+
+console.log('Using findOneAndUpdate to increment rating of review with id r2 up to 5:')
+const findAndReplaceResult = db.reviews.findOneAndUpdate(
+  { review_id: 'r2' },
+  {
+    $inc: { rating: 1 }
+  },
+  { new: true }
+)
+printjson(findAndReplaceResult)
 
 console.log('Querying review with id r2 after replacement:')
 const reviewR2 = db.reviews.findOne({ review_id: 'r2' })
