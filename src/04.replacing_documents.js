@@ -39,3 +39,22 @@ printjson(updatePushResult)
 console.log('Querying "Michael Crichton" author after adding new alias:')
 const michaelCrichton = db.authors.findOne({ _id: 22 })
 printjson(michaelCrichton)
+
+console.log('Upserting a new book with id 0000800829:')
+const upsertResult = db.books.updateOne({ _id: '0000800829' }, {
+  $set: {
+    author_id: 25,
+    title: 'Beauty and the Beast',
+    pages: 353,
+    year: 1989,
+    synopsis: 'A princess is kidnapped by a beast in a beautiful and animated castle.',
+    amount: 10.99,
+    last_updated: new Date()
+  },
+  $inc: { sightings: 1 }
+}, { upsert: true })
+printjson(upsertResult)
+
+console.log('Querying book with id 0000800829 after upsert:')
+const newBook = db.books.findOne({ _id: '0000800829' })
+printjson(newBook)
