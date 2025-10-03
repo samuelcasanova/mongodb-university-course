@@ -68,3 +68,14 @@ printjson(upsertResult)
 console.log('Querying book with id 0000800829 after upsert:')
 const newBook = db.books.findOne({ _id: '0000800829' })
 printjson(newBook)
+
+console.log('Updating all books published before 2000 to add a discount of 1 and increase amount by 1:')
+const updateManyResult = db.books.updateMany(
+  { year: { $lt: 2000 } },
+  { $set: { discount: 1 }, $inc: { amount: 1 } }
+)
+printjson(updateManyResult)
+
+console.log('Querying a sample book published before 2000 after bulk update:')
+const updatedBooks = db.books.findOne({ year: { $lt: 2000 } })
+printjson(updatedBooks)
