@@ -3,3 +3,4 @@ docker exec -it mongodb mongosh mongodb://admin:password@localhost:27017 --file 
 docker exec -it mongodb mongosh mongodb://admin:password@localhost:27017 --file /src/02.schema_validation.js
 docker exec -it mongodb mongosh mongodb://admin:password@localhost:27017 --file /src/03.retrieving_documents.js
 docker exec -it mongodb mongosh mongodb://admin:password@localhost:27017 --file /src/04.replacing_documents.js
+docker exec -it mongodb mongosh mongodb://admin:password@localhost:27017 --file /src/05.deleting_documents.js
