@@ -2,7 +2,7 @@
   "name": "node-template",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "node-app/app.js",
   "scripts": {
     "clean": "docker compose down && sudo rm -rf data",
     "start": "docker compose up -d && sleep 3 && ./run.sh",
