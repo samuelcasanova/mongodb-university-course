@@ -25,6 +25,19 @@ const main = async () => {
     const manyResult = await accountsCollection.insertMany(sampleAccounts)
     console.log('Sample accounts insertion result:', manyResult)
 
+    // Update some accounts in the database
+    const updateResult = await accountsCollection.updateOne(
+      { account_id: 'MDB314159265' },
+      { 
+        $set: { balance: 2000000, account_type: 'savings' },
+      }
+    )
+    console.log('Update result:', updateResult)
+
+    // Delete an account from the database
+    const deleteResult = await accountsCollection.deleteOne({ account_id: 'MDB011235813' })
+    console.log('Delete result:', deleteResult)
+
     // Find accounts in the database
     const accountsGreaterThan100k = await accountsCollection.find({ balance: { $gt: 100000 } }).toArray()
     console.log('Accounts with balance greater than 100,000:', accountsGreaterThan100k)
