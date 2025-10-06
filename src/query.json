@@ -1,0 +1,86 @@
+{
+  "explainVersion": "1",
+  "queryPlanner": {
+    "namespace": "test.books",
+    "parsedQuery": {
+      "$and": [
+        {
+          "author_id": {
+            "$eq": 20
+          }
+        },
+        {
+          "year": {
+            "$gt": 2000
+          }
+        }
+      ]
+    },
+    "indexFilterSet": false,
+    "queryHash": "C204C757",
+    "planCacheShapeHash": "C204C757",
+    "planCacheKey": "001548FA",
+    "optimizationTimeMillis": 0,
+    "maxIndexedOrSolutionsReached": false,
+    "maxIndexedAndSolutionsReached": false,
+    "maxScansToExplodeReached": false,
+    "prunedSimilarIndexes": false,
+    "winningPlan": {
+      "isCached": false,
+      "stage": "FETCH",
+      "inputStage": {
+        "stage": "IXSCAN",
+        "keyPattern": {
+          "author_id": 1,
+          "year": 1
+        },
+        "indexName": "author_id_1_year_1",
+        "isMultiKey": false,
+        "multiKeyPaths": {
+          "author_id": [],
+          "year": []
+        },
+        "isUnique": false,
+        "isSparse": false,
+        "isPartial": false,
+        "indexVersion": 2,
+        "direction": "forward",
+        "indexBounds": {
+          "author_id": ["[20, 20]"],
+          "year": ["(2000, inf.0]"]
+        }
+      }
+    },
+    "rejectedPlans": []
+  },
+  "queryShapeHash": "B32CD05AB5F71BDFA8983687D6684FBFE46BBF2B234E4AF000F1CC4820080AA6",
+  "command": {
+    "find": "books",
+    "filter": {
+      "author_id": 20,
+      "year": {
+        "$gt": 2000
+      }
+    },
+    "$db": "test"
+  },
+  "serverInfo": {
+    "host": "be57a084c34b",
+    "port": 27017,
+    "version": "8.0.12",
+    "gitVersion": "b60fc6875b5fb4b63cc0dbbd8dda0d6d6277921a"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "ok": 1
+}
