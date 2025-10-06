@@ -34,6 +34,22 @@ const main = async () => {
     )
     console.log('Update result:', updateResult)
 
+    // Commented as with the local MongoDB instance, transactions are not supported as it's not a replica set
+    // Update multiple accounts in the database with a transaction
+    // const session = client.startSession()
+    // const transactionResults = await session.withTransaction(async () => {
+    //   await accountsCollection.updateOne(
+    //     { account_id: 'MDB314159265' },
+    //     { $inc: { balance: -3000000 } },
+    //     { session })
+    //   await accountsCollection.updateOne(
+    //     { account_id: 'MDB829000001' },
+    //     { $inc: { balance: 3000000 } },
+    //     { session })
+    // })
+    // await session.endSession()
+    // console.log('Transaction results:', transactionResults)
+
     // Delete an account from the database
     const deleteResult = await accountsCollection.deleteOne({ account_id: 'MDB011235813' })
     console.log('Delete result:', deleteResult)
