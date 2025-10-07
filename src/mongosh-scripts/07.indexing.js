@@ -16,3 +16,6 @@ printjson(queryPlan)
 
 db.authors.hideIndex({ aliases: 1 }) // Hide the multikey index on aliases, this is recommended before dropping if we are not 100% sure and we want to just test the impact for the moment
 db.authors.dropIndex({ aliases: 1 }) // Drop the unique index on author name
+const authorsIndexesAfterDrop = db.authors.getIndexes()
+console.log('Indexes on authors collection after dropping aliases index:')
+printjson(authorsIndexesAfterDrop)

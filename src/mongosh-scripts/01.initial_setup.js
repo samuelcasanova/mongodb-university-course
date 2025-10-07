@@ -23,20 +23,3 @@ db.authors.insertMany(authorDocuments)
 console.log(`Inserted ${authorDocuments.length} authors.`)
 db.books.insertMany(bookDocuments)
 console.log(`Inserted ${bookDocuments.length} books.`)
-
-console.log('Querying author with id 20 aggregating books she has written:')
-printjson(db.authors.aggregate([
-  {
-    $match: {
-      _id: 20
-    }
-  },
-  {
-    $lookup: {
-      from: 'books',
-      localField: '_id',
-      foreignField: 'author_id',
-      as: 'books'
-    }
-  }
-]))

@@ -6,3 +6,4 @@ docker exec -it mongodb mongosh mongodb://admin:password@localhost:27017 --file 
 docker exec -it mongodb mongosh mongodb://admin:password@localhost:27017 --file /src/mongosh-scripts/05.advanced_querying_documents.js
 docker exec -it mongodb mongosh mongodb://admin:password@localhost:27017 --file /src/mongosh-scripts/06.deleting_documents.js
 docker exec -it mongodb mongosh mongodb://admin:password@localhost:27017 --file /src/mongosh-scripts/07.indexing.js
+docker exec -it mongodb mongosh mongodb://admin:password@localhost:27017 --file /src/mongosh-scripts/08.aggregating.js
