@@ -5,14 +5,6 @@ printjson(db.authors.aggregate([
     $match: {
       _id: 20
     }
-  },
-  {
-    $lookup: {
-      from: 'books',
-      localField: '_id',
-      foreignField: 'author_id',
-      as: 'books'
-    }
   }
 ]))
 
@@ -21,8 +13,18 @@ printjson(db.books.aggregate([
   {
     $group: {
       _id: '$author_id',
-      totalBooks: { $sum: 1 },
+      totalBooks: { $count: {} },
       avgPages: { $avg: '$pages' }
     }
+  }
+]))
+
+console.log('Using sort and limit:')
+printjson(db.books.aggregate([
+  {
+    $sort: { pages: -1 } // -1 for descending order, 1 for ascending order
+  },
+  {
+    $limit: 3
   }
 ]))
