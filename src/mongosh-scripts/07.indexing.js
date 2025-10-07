@@ -13,3 +13,6 @@ printjson(authorsIndexes)
 const queryPlan = db.books.explain().find({ author_id: 20, year: { $gt: 2000 } }) // Explain query using the compound index
 console.log('Query plan for finding books by author_id 20 published after 2000:')
 printjson(queryPlan)
+
+db.authors.hideIndex({ aliases: 1 }) // Hide the multikey index on aliases, this is recommended before dropping if we are not 100% sure and we want to just test the impact for the moment
+db.authors.dropIndex({ aliases: 1 }) // Drop the unique index on author name
