@@ -59,3 +59,45 @@ printjson(db.books.aggregate([
     }
   }
 ]))
+
+console.log('Creating a faceted search index on the book categories:')
+db.books.createSearchIndex(
+  'categoriesFacetedIndex',
+  {
+    mappings: {
+      dynamic: false,
+      fields: {
+        category: {
+          type: 'stringFacet'
+        },
+        year: {
+          type: 'number'
+        }
+      }
+    }
+  }
+)
+
+console.log('Performing a faceted search on the book categories:')
+printjson(db.books.aggregate([
+  {
+    $search: {
+      index: 'categoriesFacetedIndex',
+      facet: {
+        operator: {
+          range: {
+            path: 'year',
+            gte: 1920,
+            lte: 2020
+          }
+        }
+      },
+      facets: {
+        categoriesFacet: {
+          type: 'string',
+          path: 'category'
+        }
+      }
+    }
+  }
+]))

@@ -11,12 +11,12 @@ const authorDocuments = [
 ]
 
 const bookDocuments = [
-  { _id: '0000800883', author_id: 20, title: 'Frankenstein', pages: 311, year: 1818, synopsis: "Mary Shelley's 1818 Gothic masterpiece in which a scientist creates a living being from dead body parts.", amount: 14.99 },
-  { _id: '0000800824', author_id: 20, title: 'The Last Man', pages: 365, year: 1826, synopsis: "Mary Shelley's apocalyptic science fiction novel set in the late 21st century.", amount: 12.99 },
-  { _id: '0000800825', author_id: 22, title: 'Jurassic Park', pages: 399, year: 1990, synopsis: "Michael Crichton's 1990 science fiction novel about a theme park of cloned dinosaurs.", amount: 14.99 },
-  { _id: '0000800826', author_id: 23, title: 'The Mountaintop School for Dogs and Other Second Chances', pages: 288, year: 2003, synopsis: "Eleanor Cooney's 2003 novel about a sanctuary for dogs and the people who care for them.", amount: 13.99 },
-  { _id: '0000800827', author_id: 24, title: 'The Poisonwood Bible', pages: 546, year: 1998, synopsis: "Barbara Kingsolver's 1998 novel about a missionary family in the Congo.", amount: 15.99 },
-  { _id: '0000800828', author_id: 25, title: 'Far from the Madding Crowd', pages: 433, year: 1874, synopsis: "Thomas Hardy's 1874 novel about a headstrong young woman and her three suitors.", amount: 10.99 }
+  { _id: '0000800883', author_id: 20, title: 'Frankenstein', pages: 311, year: 1818, synopsis: "Mary Shelley's 1818 Gothic masterpiece in which a scientist creates a living being from dead body parts.", amount: 14.99, category: 'Horror' },
+  { _id: '0000800824', author_id: 20, title: 'The Last Man', pages: 365, year: 1826, synopsis: "Mary Shelley's apocalyptic science fiction novel set in the late 21st century.", amount: 12.99, category: 'Science Fiction' },
+  { _id: '0000800825', author_id: 22, title: 'Jurassic Park', pages: 399, year: 1990, synopsis: "Michael Crichton's 1990 science fiction novel about a theme park of cloned dinosaurs.", amount: 14.99, category: 'Science Fiction' },
+  { _id: '0000800826', author_id: 23, title: 'The Mountaintop School for Dogs and Other Second Chances', pages: 288, year: 2003, synopsis: "Eleanor Cooney's 2003 novel about a sanctuary for dogs and the people who care for them.", amount: 13.99, category: 'Fiction' },
+  { _id: '0000800827', author_id: 24, title: 'The Poisonwood Bible', pages: 546, year: 1998, synopsis: "Barbara Kingsolver's 1998 novel about a missionary family in the Congo.", amount: 15.99, category: 'Drama' },
+  { _id: '0000800828', author_id: 25, title: 'Far from the Madding Crowd', pages: 433, year: 1874, synopsis: "Thomas Hardy's 1874 novel about a headstrong young woman and her three suitors.", amount: 10.99, category: 'Drama' }
 ]
 
 db.authors.insertMany(authorDocuments)
