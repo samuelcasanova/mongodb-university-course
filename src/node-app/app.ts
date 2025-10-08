@@ -50,6 +50,23 @@ const main = async () => {
     // await session.endSession()
     // console.log('Transaction results:', transactionResults)
 
+    // Use an aggregation pipeline to sum balances of each account type
+    const aggResult = await accountsCollection.aggregate([
+      {
+        $group: {
+          _id: '$account_type',
+          totalBalance: { $sum: '$balance' }
+        },
+      },
+      {
+        $set: { account_type: '$_id' }
+      },
+      {
+        $project: { _id: 0 }
+      }
+    ]).toArray()
+    console.log('Aggregation results:', aggResult)
+
     // Delete an account from the database
     const deleteResult = await accountsCollection.deleteOne({ account_id: 'MDB011235813' })
     console.log('Delete result:', deleteResult)
